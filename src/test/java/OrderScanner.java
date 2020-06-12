@@ -1,20 +1,29 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class OrderScanner {
-	private int total;
+	private double total;
+	private Map<String, Double> inventory;
 
 	public OrderScanner(Map<String, Double> inventory)
 	{
+		this.inventory = inventory;
 		total = 0;
 	}
 	
-	public int getTotalPrice()
+	public double getTotalPrice()
 	{
 		return total;
 	}
 	
 	public void scan(String name)
 	{
-		total++;
+		total += inventory.get(name);
+	}
+	public static void main(String[] args)
+	{
+		HashMap<String, Double> inventory = new HashMap<String, Double>();
+        inventory.put("orange juice", 2.5);
+		System.out.println(inventory.get("orange juice"));
 	}
 }

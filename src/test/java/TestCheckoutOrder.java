@@ -32,4 +32,5 @@ public class TestCheckoutOrder
     	scanner.scan("orange juice");
     	assertEquals(2.5, scanner.getTotalPrice());
     }
+    
 }
