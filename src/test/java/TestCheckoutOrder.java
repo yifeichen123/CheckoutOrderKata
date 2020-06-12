@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestCheckoutOrder
 {
     @Test
-    public void validateSetup()
+    public void costIsZeroWhenScanningNothing()
     {
-        var expected = 2;
-        assertEquals(expected, 2);
+        var scanner = new OrderScanner();
+        assertEquals(0, scanner.getTotalPrice());
     }
 }
