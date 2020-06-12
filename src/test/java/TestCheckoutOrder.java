@@ -63,4 +63,13 @@ public class TestCheckoutOrder
     	assertEquals(6, scanner.getTotalPrice());
     }
     
+    @Test
+    public void scannedMarkdownItem()
+    {
+    	scanner.add("orange", 5);
+    	scanner.replace("orange", 2.5);
+    	scanner.scan("orange", 2);
+    	assertEquals(5, scanner.getTotalPrice());
+    	
+    }
 }
