@@ -18,11 +18,17 @@ public class OrderScanner {
 	
 	public void scan(String name)
 	{
-		if(inventory.get(name)==null)
+		scan(name, 1);
+	}
+
+	public void scan(String name, double weight)
+	{
+	    Double unitPrice = inventory.get(name);
+	    if (unitPrice == null)
 		{
 			throw new OrderScanner.ItemNotInInventoryException();
 		}
-		total += inventory.get(name);
+		total += weight * unitPrice;
 	}
 
 	public void add(String itemName, double price)
@@ -32,7 +38,7 @@ public class OrderScanner {
 
 	public static void main(String[] args)
 	{
-		HashMap<String, Double> inventory = new HashMap<String, Double>();
+		HashMap<String, Double> inventory = new HashMap<>();
         inventory.put("orange juice", 2.5);
 		System.out.println(inventory.get("orange juice"));
 	}
