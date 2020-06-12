@@ -33,4 +33,13 @@ public class TestCheckoutOrder
     	assertEquals(2.5, scanner.getTotalPrice());
     }
     
+    @Test
+    public void scanningTwoItem()
+    {
+    	scanner.scan("orange juice");
+    	scanner.add("apple juice", 3);
+    	scanner.scan("apple juice");
+    	assertEquals(5.5, scanner.getTotalPrice());
+    }
+    
 }
