@@ -52,7 +52,10 @@ public class OrderScanner {
 
 	public class ItemNotInInventoryException extends RuntimeException
 	{
-		
+		public ItemNotInInventoryException()
+		{
+			super("invalid item");
+		}
 	}
 
 }
