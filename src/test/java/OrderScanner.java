@@ -1,8 +1,9 @@
+import java.util.Map;
 
 public class OrderScanner {
 	private int total;
 
-	public OrderScanner()
+	public OrderScanner(Map<String, Double> inventory)
 	{
 		total = 0;
 	}

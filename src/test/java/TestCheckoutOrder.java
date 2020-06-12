@@ -5,26 +5,31 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.BeforeEach;
 
+import java.util.HashMap;
+
 public class TestCheckoutOrder
 {
     
     private OrderScanner scanner;
+
     @BeforeEach
     public void setUp()
     {
-    	scanner = new OrderScanner();
+        var inventory = new HashMap<String, Double>();
+        inventory.put("orange juice", 2.5);
+    	scanner = new OrderScanner(inventory);
     }
     
     @Test
-    
     public void costIsZeroWhenScanningNothing()
     {
         assertEquals(0, scanner.getTotalPrice());
     }
-    
-    public void costIsNotZeroWhenOneItemScanner()
+
+    @Test
+    public void scanningSingleItem()
     {
     	scanner.scan("orange juice");
-    	assertFalse(scanner.getTotalPrice()==0);
+    	assertEquals(2.5, scanner.getTotalPrice());
     }
 }
