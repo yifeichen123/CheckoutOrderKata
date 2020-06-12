@@ -18,6 +18,10 @@ public class OrderScanner {
 	
 	public void scan(String name)
 	{
+		if(inventory.get(name)==null)
+		{
+			throw new OrderScanner.ItemNotInInventoryException();
+		}
 		total += inventory.get(name);
 	}
 
@@ -33,5 +37,9 @@ public class OrderScanner {
 		System.out.println(inventory.get("orange juice"));
 	}
 
+	public class ItemNotInInventoryException extends RuntimeException
+	{
+		
+	}
 
 }
