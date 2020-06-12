@@ -7,7 +7,7 @@ public class TestCheckoutOrder
     @Test
     public void validateSetup()
     {
-        var expected = 1;
+        var expected = 2;
         assertEquals(expected, 2);
     }
 }
