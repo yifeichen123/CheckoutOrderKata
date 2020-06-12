@@ -43,6 +43,13 @@ public class OrderScanner {
 		System.out.println(inventory.get("orange juice"));
 	}
 
+	public void markdown(String name, double discount)
+	{
+		var originalPrice = this.inventory.get(name);
+		var discountedPrice = originalPrice - discount;
+		this.inventory.replace(name, discountedPrice);
+	}
+
 	public class ItemNotInInventoryException extends RuntimeException
 	{
 		

@@ -67,9 +67,8 @@ public class TestCheckoutOrder
     public void scannedMarkdownItem()
     {
     	scanner.add("orange", 5);
-    	scanner.replace("orange", 2.5);
-    	scanner.scan("orange", 2);
-    	assertEquals(5, scanner.getTotalPrice());
-    	
+    	scanner.markdown("orange", 2);
+    	scanner.scan("orange", 3);
+    	assertEquals(9, scanner.getTotalPrice());
     }
 }
