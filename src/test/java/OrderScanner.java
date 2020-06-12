@@ -20,10 +20,18 @@ public class OrderScanner {
 	{
 		total += inventory.get(name);
 	}
+
+	public void add(String itemName, double price)
+	{
+		inventory.put(itemName, price);
+	}
+
 	public static void main(String[] args)
 	{
 		HashMap<String, Double> inventory = new HashMap<String, Double>();
         inventory.put("orange juice", 2.5);
 		System.out.println(inventory.get("orange juice"));
 	}
+
+
 }

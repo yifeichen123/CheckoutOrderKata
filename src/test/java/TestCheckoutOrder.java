@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 
@@ -40,6 +40,16 @@ public class TestCheckoutOrder
     	scanner.add("apple juice", 3);
     	scanner.scan("apple juice");
     	assertEquals(5.5, scanner.getTotalPrice());
+    }
+
+    @Test
+    public void scannedItemMustBeInInventory()
+    {
+        assertThrows(ItemNotInInventoryException.class,
+                () -> {
+                    scanner.scan("invalid item");
+                });
+        assertEquals(0, scanner.getTotalPrice());
     }
     
 }
