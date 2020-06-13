@@ -26,7 +26,7 @@ public class OrderScanner {
 	    Double unitPrice = inventory.get(name);
 	    if (unitPrice == null)
 		{
-			throw new OrderScanner.ItemNotInInventoryException();
+			throw new OrderScanner.ItemNotInInventoryException(name);
 		}
 		total += weight * unitPrice;
 	}
@@ -52,10 +52,13 @@ public class OrderScanner {
 
 	public class ItemNotInInventoryException extends RuntimeException
 	{
-		public ItemNotInInventoryException()
+		
+		public ItemNotInInventoryException(String name)
 		{
-			super("invalid item");
+			super("The inventory doesn't contain " + name);
 		}
+		
+		
 	}
 
 }
