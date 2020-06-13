@@ -52,6 +52,13 @@ public class TestCheckoutOrder
                     scanner.scan("invalid item");
                 });
     	assertTrue(exception.toString().contains("invalid item"));
+
+    	exception = assertThrows(OrderScanner.ItemNotInInventoryException.class,
+                () -> {
+                    scanner.scan("another bad item");
+                });
+    	assertTrue(exception.toString().contains("another bad item"));
+
         assertEquals(0, scanner.getTotalPrice());
     }
     
